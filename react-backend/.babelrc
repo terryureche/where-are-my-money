@@ -1,0 +1,11 @@
+{
+    "env": {
+        "test": {
+            "presets": ["@babel/preset-env"],
+            "plugins":[ "@babel/plugin-transform-runtime"]
+        },
+        "server" : {
+            "presets": ["@babel/preset-env"]
+        }
+    }
+}
