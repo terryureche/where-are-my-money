@@ -2,19 +2,24 @@
 
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import app from "../app.js";
+import { expect } from 'chai';
 
 chai.use(chaiHttp);
 chai.should();
 
-describe("Users", () => {
+let serverUrl = "http://localhost:3000";
+
+describe("Users", (done) => {
+    before(function() {
+        this.timeout(10000) // 10 second timeout for setup
+      })
     it("return all users", (done) => {
-        chai.request(app)
+    chai.request(serverUrl)
             .get('/api/v1/getAllUsers')
             .end((err, res) => {
-                res.should.have(200);
-                res.body.should.be("object");
+                res.status.should.be.equal(200);
+                expect(res.body).to.be.an("object");
                 done();
             });
-    })  
+    })
 }); 

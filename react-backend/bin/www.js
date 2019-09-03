@@ -34,7 +34,8 @@ connectDb().then(async () => {
   if(erasellAllDb) {
     await Promise.all([
       models.User.deleteMany({}),
-      models.Message.deleteMany({})
+      models.Message.deleteMany({}),
+      models.Card.deleteMany({})
     ]);
 
   }
