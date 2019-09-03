@@ -4,7 +4,7 @@ const UserModel = models.User;
 
 const createUser = async (data) => {
     let record = new UserModel({
-        username: data.name
+        username: data.name,
     });
 
     let resp = await record.save();

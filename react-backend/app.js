@@ -10,6 +10,8 @@ var indexRouter = require('./routes/index');
 var app = express();
 
 import { getUserApi, getUsersAllApi } from "./api/user/get.js";
+import { createCardApi } from "./api/card/create.js";
+import { getCardApi, getCardsAllApi } from "./api/card/get.js";
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,8 +30,11 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); 
 
+app.post("/api/v1/card", createCardApi);
 app.get("/api/v1/user/:name", getUserApi);
+app.get("/api/v1/card/:name", getCardApi);
 app.get("/api/v1/getAllUsers", getUsersAllApi);
+app.get("/api/v1/getAllCards", getCardsAllApi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
