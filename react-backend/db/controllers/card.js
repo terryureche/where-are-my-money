@@ -31,7 +31,7 @@ const getCard = async (data) => {
     let card = await CardModel.findOne({
         name: data.name
     }).exec();
-
+    
     return card;
 };
 

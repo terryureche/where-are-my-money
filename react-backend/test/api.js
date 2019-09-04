@@ -23,3 +23,20 @@ describe("Users", (done) => {
             });
     })
 }); 
+
+describe("User", (done) => {
+    before(function() {
+        this.timeout(1000);
+    })
+    it("return user rwieruch", (done) => {
+        chai.request(serverUrl)
+            .get('/api/v1/user/rwieruch')
+            .end((err, res) => {
+                res.status.should.be.equal(200);
+                expect(res.body).to.have.key("success");
+                expect(res.body.success).to.have.property("username");
+                expect(res.body.success.username).to.be.equal("rwieruch");
+                done();
+            })
+    })
+})
