@@ -4,7 +4,11 @@ const UserModel = models.User;
 
 const createUser = async (data) => {
     let record = new UserModel({
-        username: data.name,
+        username: data.username,
+        password: data.password,
+        first_name: data.first_name,
+        last_name: data.last_name,
+        email: data.email
     });
 
     let resp = await record.save();
