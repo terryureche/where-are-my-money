@@ -12,6 +12,7 @@ var app = express();
 import { getUserApi, getUsersAllApi } from "./api/user/get.js";
 import { createCardApi } from "./api/card/create.js";
 import { getCardApi, getCardsAllApi } from "./api/card/get.js";
+import { createUserApi } from "./api/user/create.js";
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +32,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 
 app.post("/api/v1/card", createCardApi);
+app.post("/api/v1/user", createUserApi);
 app.get("/api/v1/user/:name", getUserApi);
 app.get("/api/v1/card/:name", getCardApi);
 app.get("/api/v1/getAllUsers", getUsersAllApi);

@@ -4,7 +4,7 @@ const getCardApi = async (req, res) => {
     let cardData = await getCard(req.params);
 
     return res.status(200).send({   
-        record: cardData
+        success: cardData
     });
 };
 
